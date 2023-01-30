@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Gallery; 
+use App\Models\Comment;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -18,6 +20,8 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
+        'first_name',
+        'last_name',
         'name',
         'email',
         'password',
@@ -56,4 +60,25 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function createGallery($title, $description, $imageUrls)
+    {
+        $this->galleries()->create([
+            'title' => $title,
+            'description' => $description,
+            'imageUrls' => $imageUrls, 
+            'user_id' => auth()->id(), 
+        ]);
+    }
+
 }
