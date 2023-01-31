@@ -15,7 +15,7 @@ class GalleriesController extends Controller
 
     public function index()
     {
-        return Gallery::with('user')->paginate(10);
+        return Gallery::with('user')->orderBy('created_at', 'desc')->paginate(10);
     }
 
     public function show($id)
