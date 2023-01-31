@@ -32,3 +32,9 @@ Route::group([
     Route::post('register', 'AuthController@register');
     
 });
+
+Route::get('galleries', 'GalleriesController@index');
+Route::get('galleries/{id}', 'GalleriesController@show');              
+Route::post('galleries/{id}', 'GalleriesController@store');          
+Route::put('galleries/{id}', 'GalleriesController@update');             
+Route::delete('galleries/{id}', 'GalleriesController@destroy');         
