@@ -10,7 +10,7 @@ class GalleriesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:api');
+        $this->middleware('auth:api', ['except' => ['index', 'show']]);
     }
 
     public function index()

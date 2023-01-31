@@ -37,4 +37,10 @@ Route::get('galleries', 'GalleriesController@index');
 Route::get('galleries/{id}', 'GalleriesController@show');              
 Route::post('galleries/{id}', 'GalleriesController@store');          
 Route::put('galleries/{id}', 'GalleriesController@update');             
-Route::delete('galleries/{id}', 'GalleriesController@destroy');         
+Route::delete('galleries/{id}', 'GalleriesController@destroy');   
+
+Route::get('comments', 'CommentsController@index');
+Route::get('comments/{id}', 'CommentsController@show');     
+Route::post('comments/{id}', 'CommentsController@store');     
+Route::put('comments/{id}', 'CommentsController@update');    
+Route::delete('comments/{id}', 'CommentsController@destroy');  
