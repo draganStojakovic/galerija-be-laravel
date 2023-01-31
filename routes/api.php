@@ -44,3 +44,5 @@ Route::get('comments/{id}', 'CommentsController@show');
 Route::post('comments/{id}', 'CommentsController@store');     
 Route::put('comments/{id}', 'CommentsController@update');    
 Route::delete('comments/{id}', 'CommentsController@destroy');  
+
+Route::get('users/{id}', 'UsersController@show');
