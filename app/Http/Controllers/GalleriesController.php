@@ -15,7 +15,7 @@ class GalleriesController extends Controller
 
     public function index()
     {
-        return Gallery::paginate(10);
+        return Gallery::with('user')->paginate(10);
     }
 
     public function show($id)
@@ -27,12 +27,11 @@ class GalleriesController extends Controller
     {
         $validated = $request->validated();
         $user = User::findOrFail($id);
-        $user->createPost(
+        $user->createGallery(
             $validated['title'], 
             $validated['description'], 
             $validated['image_url']
         );
-        return $user;
     }
 
     public function update(GalleryRequest $request, $id)

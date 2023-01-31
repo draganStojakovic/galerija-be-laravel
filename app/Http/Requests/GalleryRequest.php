@@ -26,7 +26,10 @@ class GalleryRequest extends FormRequest
         return [
             'title' => 'required|min:2|max:255',
             'description' => 'max:1000',
-            'image_url' => 'url|mimes:jpg,bmp,png',
+            'image_url' => 'required|array|min:1',
+            'image_url.*' => 'url',
+            // 'image_url.*' => 'required|file|mimetypes:image/jpg,image/jpeg',  
+            // 'image_url.*' => ["url", "regex:/(*.jpeg)/g"]
         ];
     }
 }
