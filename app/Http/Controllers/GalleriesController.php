@@ -10,7 +10,7 @@ class GalleriesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['index']]);
+        $this->middleware('auth:api', ['except' => ['index', 'show', 'showUserGallery']]);
     }
 
     public function index()
@@ -23,13 +23,18 @@ class GalleriesController extends Controller
         return Gallery::with('comments', 'user')->findOrFail($id);
     }
 
+    public function showUserGallery($id)
+    {
+        return Gallery::where("user_id", $id)->orderBy("created_at", "desc")->paginate(10);
+    }
+
     public function store(GalleryRequest $request, $id)
     {
         $validated = $request->validated();
         $user = User::findOrFail($id);
         $user->createGallery(
-            $validated['title'], 
-            $validated['description'], 
+            $validated['title'],
+            $validated['description'],
             $validated['image_url']
         );
     }

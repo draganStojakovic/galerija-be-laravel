@@ -10,7 +10,7 @@ class CommentsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['index', 'show']]);
+        $this->middleware('auth:api', ['except' => ['index', 'show', 'showSpecificGalleryComments']]);
     }
 
     public function index()
@@ -23,11 +23,17 @@ class CommentsController extends Controller
         return Comment::with('user', 'gallery')->findOrFail($id);
     }
 
+    public function showSpecificGalleryComments($id)
+    {   
+        return Comment::where('gallery_id', $id)->orderBy("created_at", "desc")->get();
+    }
+
     public function store(CommentRequest $request, $id)
     {
         $validated = $request->validated();
         $gallery = Gallery::findOrFail($id);
-        $gallery->createComment($validated['content']);
+        $comment = $gallery->createComment($validated['content']);
+        return $comment;
     }
 
     public function update(CommentRequest $request, $id)

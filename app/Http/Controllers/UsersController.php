@@ -13,7 +13,11 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        return User::with('comments', 'galleries')->findOrFail($id);
+        return User::with('galleries')->findOrFail($id);
     }
 
+    public function showOnlyUser($id)
+    {
+        return User::findOrFail($id);
+    }
 }
