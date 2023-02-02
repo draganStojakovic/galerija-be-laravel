@@ -55,8 +55,16 @@ class GalleriesController extends Controller
         return Gallery::search($term);
     }
 
-    public function searchUserGalleries($term, $id)
+    public function searchUserGalleries()
     {
-        return Gallery::search($term);
+        $term = request()->input('term');
+        $userId = request()->input('user_id');
+        $page = request()->input('page');
+        if ($page) {
+            return Gallery::searchUserGalleries($term, $userId, $page);
+        } else {
+            return Gallery::searchUserGalleries($term, $userId);
+        }
     }
+
 }

@@ -51,3 +51,4 @@ Route::get('userGalleries/{id}', 'GalleriesController@showUserGallery');
 Route::get('user/{id}/userGalleries', 'GalleriesController@showUserGallery');
 Route::get('commentsOnAGallery/{id}', 'CommentsController@showSpecificGalleryComments');
 Route::get('search/{term}/galleries', 'GalleriesController@searchGalleries');
+Route::get('userGalleriesSearch', 'GalleriesController@searchUserGalleries');

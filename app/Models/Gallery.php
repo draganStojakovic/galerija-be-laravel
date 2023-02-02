@@ -29,4 +29,12 @@ class Gallery extends Model
     {
         return self::with('user')->where('title', 'LIKE', '%' . $term . '%')->orderBy('created_at', 'desc')->paginate(10);
     }
+
+    public static function searchUserGalleries($term, $userId)
+    {
+        return self::where('title', 'LIKE', '%' . $term . '%')
+            ->where('user_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+    }
 }
