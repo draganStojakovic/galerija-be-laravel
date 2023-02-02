@@ -47,7 +47,7 @@ Route::delete('comments/{id}', 'CommentsController@destroy');
 
 Route::get('users/{id}', 'UsersController@show');
 Route::get('only-user/{id}', 'UsersController@showOnlyUser');
-// Route::get('authUserGalleries/{id}', 'GalleriesController@showUserGallery');
 Route::get('userGalleries/{id}', 'GalleriesController@showUserGallery');
 Route::get('user/{id}/userGalleries', 'GalleriesController@showUserGallery');
 Route::get('commentsOnAGallery/{id}', 'CommentsController@showSpecificGalleryComments');
+Route::get('searchGalleries/{term}', 'GalleriesController@searchGalleries');

@@ -50,4 +50,9 @@ class GalleriesController extends Controller
     {
         Gallery::destroy($id);
     }
+
+    public function searchGalleries($term)
+    {
+        return Gallery::search($term);
+    }
 }

@@ -25,12 +25,8 @@ class Gallery extends Model
         return $this->hasMany(Comment::class);
     }
 
-    // public function createComment($content)
-    // {
-    //     $this->comments()->create([
-    //         'content' => $content, 
-    //         'user_id' => auth()->id(), 
-    //     ]);
-    // }
-
+    public static function search($term)
+    {
+        return self::with('user')->where('title', 'LIKE', '%' . $term . '%')->paginate(10);
+    }
 }
