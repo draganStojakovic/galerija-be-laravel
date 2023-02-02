@@ -25,12 +25,12 @@ class Gallery extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function createComment($content)
-    {
-        $this->comments()->create([
-            'content' => $content, 
-            'user_id' => auth()->id(), 
-        ]);
-    }
+    // public function createComment($content)
+    // {
+    //     $this->comments()->create([
+    //         'content' => $content, 
+    //         'user_id' => auth()->id(), 
+    //     ]);
+    // }
 
 }

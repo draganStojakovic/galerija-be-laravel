@@ -30,10 +30,11 @@ class CommentsController extends Controller
 
     public function store(CommentRequest $request, $id)
     {
-        $validated = $request->validated();
-        $gallery = Gallery::findOrFail($id);
-        $comment = $gallery->createComment($validated['content']);
-        return $comment;
+        return Comment::create([
+            'content' => $request->content,
+            'user_id' => auth()->id(),
+            'gallery_id' => $id,
+        ]);
     }
 
     public function update(CommentRequest $request, $id)
