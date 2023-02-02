@@ -11,7 +11,7 @@ class Gallery extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'image_url'];
+    protected $fillable = ['title', 'description', 'image_url', 'user_id'];
 
     protected $casts = ['image_url' => 'array'];
 
@@ -27,6 +27,6 @@ class Gallery extends Model
 
     public static function search($term)
     {
-        return self::with('user')->where('title', 'LIKE', '%' . $term . '%')->paginate(10);
+        return self::with('user')->where('title', 'LIKE', '%' . $term . '%')->orderBy('created_at', 'desc')->paginate(10);
     }
 }

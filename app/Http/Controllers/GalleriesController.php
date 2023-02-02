@@ -28,15 +28,14 @@ class GalleriesController extends Controller
         return Gallery::where("user_id", $id)->orderBy("created_at", "desc")->paginate(10);
     }
 
-    public function store(GalleryRequest $request, $id)
+    public function store(GalleryRequest $request)
     {
-        $validated = $request->validated();
-        $user = User::findOrFail($id);
-        $user->createGallery(
-            $validated['title'],
-            $validated['description'],
-            $validated['image_url']
-        );
+        return Gallery::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image_url' => $request->image_url,
+            'user_id' => auth()->id(),
+        ]);
     }
 
     public function update(GalleryRequest $request, $id)
@@ -52,6 +51,11 @@ class GalleriesController extends Controller
     }
 
     public function searchGalleries($term)
+    {
+        return Gallery::search($term);
+    }
+
+    public function searchUserGalleries($term, $id)
     {
         return Gallery::search($term);
     }

@@ -35,7 +35,7 @@ Route::group([
 
 Route::get('galleries', 'GalleriesController@index');
 Route::get('galleries/{id}', 'GalleriesController@show');
-Route::post('galleries/{id}', 'GalleriesController@store');
+Route::post('galleries', 'GalleriesController@store');
 Route::put('galleries/{id}', 'GalleriesController@update');
 Route::delete('galleries/{id}', 'GalleriesController@destroy');
 
@@ -50,4 +50,4 @@ Route::get('only-user/{id}', 'UsersController@showOnlyUser');
 Route::get('userGalleries/{id}', 'GalleriesController@showUserGallery');
 Route::get('user/{id}/userGalleries', 'GalleriesController@showUserGallery');
 Route::get('commentsOnAGallery/{id}', 'CommentsController@showSpecificGalleryComments');
-Route::get('searchGalleries/{term}', 'GalleriesController@searchGalleries');
+Route::get('search/{term}/galleries', 'GalleriesController@searchGalleries');
