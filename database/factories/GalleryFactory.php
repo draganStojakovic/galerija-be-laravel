@@ -47,13 +47,6 @@ class GalleryFactory extends Factory
             'https://m.media-amazon.com/images/I/71Lt+M9uXsL._AC_SL1200_.jpg',
             'https://autoworks-nj.com/wp-content/uploads/2016/04/Marlboro-Car-Amplifiers.jpg',
             'https://i.ebayimg.com/images/g/hFYAAOSw3KRiXFDW/s-l1600.jpg',
-            'https://cdntdreditorials2.azureedge.net/cache/3/3/0/c/2/1/330c219c84b386655b722e608f60361d407f4852.jpg',
-            'https://autorepublika.com/wp-content/uploads/2019/01/1-272.jpg',
-            'https://cdn.shopify.com/s/files/1/0284/7378/6465/collections/toyota-supra-mkiv-turbotarga-780x405_1200x630.jpg?v=1593681769',
-            'https://www.linuxadictos.com/wp-content/uploads/Windows95-e1535097032992.png',
-            'https://d3d00swyhr67nd.cloudfront.net/w1200h1200/collection/WAR/COMP/WAR_COMP_106-001.jpg',
-            'https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/hangin-out-carolyne-hawley.jpg',
-            'https://i.pinimg.com/originals/6e/03/60/6e036043b7aee67155425c86846537de.jpg',
             'https://mixmag.asia/assets/uploads/images/_columns2/daft-punk-homework-equipment-gear.jpg',
             'https://consequence.net/wp-content/uploads/2021/03/Daft-Punk-anime.jpeg?quality=80&w=827&h=465&crop=1&resize=1031%2C580&strip',
         ]);
